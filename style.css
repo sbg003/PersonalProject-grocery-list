@@ -1,12 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
 header,
 footer {
   color: white;
+  font-family: 'Bebas Neue', cursive;
+  font-weight: bold;
+  font-size: 20px;
   background-color: #521809;
   width: 100%;
   text-align: center;
   padding: 0.5em;
-  position: relative;
 }
+
 footer,
 .push {
   height: 2em;
@@ -21,20 +26,27 @@ form {
 label {
   display: block;
   line-height: 1.5em;
+  margin: 0.75em 0 0 0;
 }
 input {
   width: inherit;
   padding: 1em;
 }
+
+select{
+
+}
+
 .delete, button {
   color: white;
-  background-color: #f3a493;
+  background-color: #521809;
 }
 button {
+  display: block;
   border: 0;
   padding: 1em;
   width: inherit;
-  margin: 0.75em 0;
+  margin: 1.75em 0;
 }
 .icon {
   display: inline-block;
@@ -63,6 +75,7 @@ ul {
   padding: 0;
 }
 li {
+  width: 50%;
   color: #004A55;
   padding: 0.75em;
   cursor: pointer;
@@ -94,14 +107,18 @@ li:hover {
   clear: both;
 }
 #bought-list li {
-  background-color: #F6F6F6;
+  background-color: #f3a493;
+  color: white;
+  font-weight: bold;
 }
 #bought-list li .quantity {
-  color: #666666;
+  color: white;
 }
 .list__label {
+  width: 75%;
   border-bottom: 2px solid #f3a493;
-  font-size: 0.75em;
-  color: #004A55;
+  font-size: 1.25em;
+  font-weight: bold;
+  color: #521809;
   padding: 0;
 }

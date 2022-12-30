@@ -5,11 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <title>Planning Tool for Building a Weekly Grocery List</title>
 </head>
 <body>
     <header>
-        Grocery List
+       Weekly Grocery List
       </header>
 
       <main>
@@ -18,14 +18,33 @@
           <input type="text" id="item-input">
           <label for="quantity-input">Quantity</label>
           <input type="number" id="quantity-input">
+          <label for="department">Department</label>
+          <select name="department-option" id="department-select">
+            <option value="paper">Paper</option>
+            <option value="dairy">Dairy</option>
+            <option value="pantry">Pantry</option>
+            <option value="meat">Meat</option>
+            <option value="frozen">Frozen</option>
+            <option value="produce">Produce</option>
+          </select>
+          <label for="store">Store</label>
+          <select name="store-option" id="store-select">
+            <option value="walmart-aldi">Walmart/Aldi</option>
+            <option value="harris-teeter">Harris Teeter</option>
+            <option value="food-lion">Food Lion</option>
+            <option value="dollar-tree">Dollar Tree</option>
+            <option value="target">Target</option>
+            <option value="dollar-general">Dollar General</option>
+          </select>
+
           <button type="submit" id="submit-btn">Add</button>
         </form>
 
         <div id="lists">
-          <p class="list__label">Staples (Commonly Ordered Items) <span class="quantity" id="shopping-num"></span></p>
+          <p class="list__label">Staples (Commonly Ordered Items)- Click item to add to Shopping List. <span class="quantity" id="shopping-num"></span></p>
           <ul id="shopping-list">
           </ul>
-          <p class="list__label">Shopping List <span class="quantity" id="bought-num"></span></p>
+          <p class="list__label">Shopping List- Click item to cross off Shopping List, or click 'X' to delete item. <span class="quantity" id="bought-num"></span></p>
           <ul id="bought-list">
           </ul>
         </div>
