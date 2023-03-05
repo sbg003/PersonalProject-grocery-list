@@ -13,7 +13,7 @@
       </header>
 
       <main>
-        <form>
+        <form target="get">
           <label for="item-input">Item</label>
           <input type="text" id="item-input">
           <label for="quantity-input">Quantity</label>
@@ -137,16 +137,22 @@
             e.preventDefault();
 
             let name = $("#item-input"),
-            quantity = $("#quantity-input");
+            quantity = $("#quantity-input"),
+            department = $("#department-select"),
+            store = $("#store-select");
 
             if (name.val()) {
               items.add({
                 name: name.val(),
-                quantity: quantity.val() || 1 });
+                quantity: quantity.val() || 1,
+                department: department.val(),
+                store: store.val() });
 
             }
             name.val("");
             quantity.val("");
+            department.val("");
+            store.val("");
 
           };
 
@@ -182,7 +188,7 @@
           let $item = item.$el || this.createListItem(item);
 
           if (item.bought) {
-            $item.prependTo(this.$boughtList);
+            $item.appendTo(this.$boughtList);
           } else {
             $item.appendTo(this.$shoppingList);
           }
@@ -199,7 +205,7 @@
         },
 
         createListItem(item) {
-          item.$el = $(`<li data-id=${item.id}>${item.name} <span class="quantity">${item.quantity}</span><span class="delete">X</span></li>`);
+          item.$el = $(`<li data-id=${item.id}>${item.name} <span class="quantity">${item.quantity}</span><span${item.department}></span><span${item.store}></span><span class="delete">X</span></li>`);
 
           return item.$el;
         },
@@ -216,13 +222,13 @@
           this.$boughtList.empty();
 
           items.forEach(item => {
-            let $item = $(`<li data-id=${item.id}>${item.name}<span>${item.quantity}</span></li>`);
+            let $item = $(`<li data-id=${item.id}>${item.name}<span>${item.quantity}<${item.department}><${item.store}>/span></li>`);
 
             if (item.bought) {
-              this.$boughtList.append($item);
-              $item.addClass("bought");
+              this.$boughtList.department.sort(append($item));
+              department.sort($item.addClass("bought"));
             } else {
-              this.$shoppingList.append($item);
+              this.$shoppingList.department.sort(append($item));
             }
           });
 
@@ -232,307 +238,459 @@
 
       items.add({
         name: "foil",
-        quantity: 1 });
+        quantity: 1,
+        department: "paper",
+        store: "Walmart/Aldi" });
 
       items.add({
         name: "toilet paper",
-        quantity: 1 });
+        quantity: 1,
+        department: "paper",
+        store: "Walmart/Aldi" });
 
       items.add({
         name: "paper towels",
-        quantity: 1 });
+        quantity: 1,
+        department: "paper",
+        store: "Walmart/Aldi" });
 
       items.add({
         name: "hand soap",
-        quantity: 1 });
+        quantity: 1,
+        department: "paper",
+        store: "Walmart/Aldi" });
 
       items.add({
         name: "dish soap",
-        quantity: 1 });
+        quantity: 1,
+        department: "paper",
+        store: "Walmart/Aldi" });
 
       items.add({
         name: "diapers",
-        quantity: 1 });
+        quantity: 1,
+        department: "paper",
+        store: "Walmart/Aldi" });
 
         items.add({
         name: "wipes",
-        quantity: 1 });
+        quantity: 1,
+        department: "paper",
+        store: "Walmart/Aldi" });
 
       items.add({
         name: "ziplock bags",
-        quantity: 1 });
+        quantity: 1,
+        department: "paper",
+        store: "Walmart/Aldi" });
 
       items.add({
         name: "trash bags",
-        quantity: 1 });
+        quantity: 1,
+        department: "paper",
+        store: "Walmart/Aldi" });
 
         items.add({
         name: "laundry detergent",
-        quantity: 1 });
+        quantity: 1,
+        department: "paper",
+        store: "Walmart/Aldi" });
 
       items.add({
         name: "Ava shampoo/conditioner",
-        quantity: 1 });
+        quantity: 1,
+        department: "paper",
+        store: "Walmart/Aldi" });
 
       items.add({
         name: "Ava soap",
-        quantity: 1 });
+        quantity: 1,
+        department: "paper",
+        store: "Walmart/Aldi" });
 
         items.add({
         name: "toothpaste/toothbrushes",
-        quantity: 1 });
+        quantity: 1,
+        department: "paper",
+        store: "Walmart/Aldi" });
 
       items.add({
         name: "deodorant",
-        quantity: 1 });
+        quantity: 1,
+        department: "paper",
+        store: "Walmart/Aldi" });
 
       items.add({
         name: "OJ",
-        quantity: 1 });
+        quantity: 1,
+        department: "dairy",
+        store: "Walmart/Aldi" });
 
         items.add({
         name: "lemonade",
-        quantity: 1 });
+        quantity: 1,
+        department: "dairy",
+        store: "Walmart/Aldi" });
 
       items.add({
         name: "butter",
-        quantity: 1 });
+        quantity: 1,
+        department: "dairy",
+        store: "Walmart/Aldi" });
 
       items.add({
         name: "eggs",
-        quantity: 1 });
+        quantity: 1,
+        department: "dairy",
+        store: "Walmart/Aldi" });
 
         items.add({
         name: "milk",
-        quantity: 1 });
+        quantity: 1,
+        department: "dairy",
+        store: "Walmart/Aldi" });
 
       items.add({
         name: "yogurt",
-        quantity: 1 });
+        quantity: 1,
+        department: "dairy",
+        store: "Walmart/Aldi" });
 
       items.add({
         name: "greek yogurt",
-        quantity: 1 });
+        quantity: 1,
+        department: "dairy",
+        store: "Walmart/Aldi" });
 
         items.add({
         name: "cottage cheese",
-        quantity: 1 });
+        quantity: 1,
+        department: "dairy",
+        store: "Walmart/Aldi" });
 
       items.add({
         name: "hummus",
-        quantity: 1 });
+        quantity: 1,
+        department: "dairy",
+        store: "Walmart/Aldi" });
 
       items.add({
         name: "chunk cheese (cheedar x 2, mozza x 1)",
-        quantity: 1 });
+        quantity: 1,
+        department: "dairy",
+        store: "Walmart/Aldi" });
 
         items.add({
         name: "salsa",
-        quantity: 1 });
+        quantity: 1,
+        department: "dairy",
+        store: "Walmart/Aldi" });
 
       items.add({
         name: "tortillas",
-        quantity: 1 });
+        quantity: 1,
+        department: "pantry",
+        store: "Walmart/Aldi" });
 
       items.add({
         name: "pasta",
-        quantity: 1 });
+        quantity: 1,
+        department: "pantry",
+        store: "Walmart/Aldi" });
 
         items.add({
         name: "pasta sauce",
-        quantity: 1 });
+        quantity: 1,
+        department: "pantry",
+        store: "Walmart/Aldi" });
 
       items.add({
         name: "oreos",
-        quantity: 1 });
+        quantity: 1,
+        department: "pantry",
+        store: "Walmart/Aldi" });
 
       items.add({
         name: "green beans",
-        quantity: 1 });
+        quantity: 1,
+        department: "pantry",
+        store: "Walmart/Aldi" });
 
         items.add({
         name: "mashed potatoes",
-        quantity: 1 });
+        quantity: 1,
+        department: "pantry",
+        store: "Walmart/Aldi" });
 
       items.add({
         name: "donettes",
-        quantity: 1 });
+        quantity: 1,
+        department: "pantry",
+        store: "Walmart/Aldi" });
 
       items.add({
         name: "buns",
-        quantity: 1 });
+        quantity: 1,
+        department: "pantry",
+        store: "Walmart/Aldi" });
 
         items.add({
         name: "chips",
-        quantity: 1 });
+        quantity: 1,
+        department: "pantry",
+        store: "Walmart/Aldi" });
 
       items.add({
         name: "soda (Dr P, 7Up Zero, Sams Zero)",
-        quantity: 1 });
+        quantity: 1,
+        department: "pantry",
+        store: "Walmart/Aldi" });
 
       items.add({
         name: "avocado oil",
-        quantity: 1 });
+        quantity: 1,
+        department: "pantry",
+        store: "Walmart/Aldi" });
 
       items.add({
         name: "peanut butter",
-        quantity: 1 });
+        quantity: 1,
+        department: "pantry",
+        store: "Walmart/Aldi" });
 
       items.add({
         name: "bread",
-        quantity: 1 });
+        quantity: 1,
+        department: "pantry",
+        store: "Walmart/Aldi" });
 
       items.add({
         name: "chef boyardee",
-        quantity: 1 });
+        quantity: 1,
+        department: "pantry",
+        store: "Walmart/Aldi" });
 
         items.add({
         name: "fiber cookes/brownies",
-        quantity: 1 });
+        quantity: 1,
+        department: "pantry",
+        store: "Walmart/Aldi" });
 
       items.add({
         name: "chicken broth",
-        quantity: 1 });
+        quantity: 1,
+        department: "pantry",
+        store: "Walmart/Aldi" });
 
       items.add({
         name: "rice krispie treats",
-        quantity: 1 });
+        quantity: 1,
+        department: "pantry",
+        store: "Walmart/Aldi" });
 
         items.add({
         name: "honey buns",
-        quantity: 1 });
+        quantity: 1,
+        department: "pantry",
+        store: "Walmart/Aldi" });
 
       items.add({
         name: "canned peaches (or jello peaches)",
-        quantity: 1 });
+        quantity: 1,
+        department: "pantry",
+        store: "Walmart/Aldi" });
 
       items.add({
         name: "crackers",
-        quantity: 1 });
+        quantity: 1,
+        department: "pantry",
+        store: "Walmart/Aldi" });
 
         items.add({
         name: "brown rice",
-        quantity: 1 });
+        quantity: 1,
+        department: "pantry",
+        store: "Walmart/Aldi" });
 
       items.add({
         name: "pepperoni/salami",
-        quantity: 1 });
+        quantity: 1,
+        department: "meat",
+        store: "Walmart/Aldi" });
 
       items.add({
         name: "country ham",
-        quantity: 1 });
+        quantity: 1,
+        department: "meat",
+        store: "Walmart/Aldi" });
 
         items.add({
         name: "chicken x 4",
-        quantity: 1 });
+        quantity: 1,
+        department: "meat",
+        store: "Walmart/Aldi" });
 
       items.add({
         name: "ground beef",
-        quantity: 1 });
+        quantity: 1,
+        department: "meat",
+        store: "Walmart/Aldi" });
 
       items.add({
         name: "steak",
-        quantity: 1 });
+        quantity: 1,
+        department: "meat",
+        store: "Walmart/Aldi" });
 
         items.add({
         name: "rolls",
-        quantity: 1 });
+        quantity: 1,
+        department: "frozen",
+        store: "Walmart/Aldi" });
 
       items.add({
         name: "texas toast",
-        quantity: 1 });
+        quantity: 1,
+        department: "frozen",
+        store: "Walmart/Aldi" });
 
       items.add({
         name: "chicken patties",
-        quantity: 1 });
+        quantity: 1,
+        department: "frozen",
+        store: "Walmart/Aldi" });
 
         items.add({
         name: "hotpockets",
-        quantity: 1 });
+        quantity: 1,
+        department: "frozen",
+        store: "Walmart/Aldi" });
 
       items.add({
         name: "hashbrown patties",
-        quantity: 1 });
+        quantity: 1,
+        department: "frozen",
+        store: "Walmart/Aldi" });
 
       items.add({
         name: "yasso ice cream",
-        quantity: 1 });
+        quantity: 1,
+        department: "frozen",
+        store: "Walmart/Aldi" });
 
         items.add({
         name: "pizza",
-        quantity: 1 });
+        quantity: 1,
+        department: "frozen",
+        store: "Walmart/Aldi" });
 
       items.add({
         name: "breakfast bowls",
-        quantity: 1 });
+        quantity: 1,
+        department: "frozen",
+        store: "Walmart/Aldi" });
 
       items.add({
         name: "berries",
-        quantity: 1 });
+        quantity: 1,
+        department: "produce",
+        store: "Walmart/Aldi" });
 
         items.add({
         name: "bag of apples",
-        quantity: 1 });
+        quantity: 1,
+        department: "produce",
+        store: "Walmart/Aldi" });
 
       items.add({
         name: "bunch of bananas",
-        quantity: 1 });
+        quantity: 1,
+        department: "produce",
+        store: "Walmart/Aldi" });
 
       items.add({
         name: "bag of oranges",
-        quantity: 1 });
+        quantity: 1,
+        department: "produce",
+        store: "Walmart/Aldi" });
 
         items.add({
         name: "broccoli",
-        quantity: 1 });
+        quantity: 1,
+        department: "produce",
+        store: "Walmart/Aldi" });
 
       items.add({
         name: "asparagus",
-        quantity: 1 });
+        quantity: 1,
+        department: "produce",
+        store: "Walmart/Aldi" });
 
       items.add({
         name: "pack of zuchinni",
-        quantity: 1 });
+        quantity: 1,
+        department: "produce",
+        store: "Walmart/Aldi" });
 
         items.add({
         name: "bag of potatoes",
-        quantity: 1 });
+        quantity: 1,
+        department: "produce",
+        store: "Walmart/Aldi" });
 
       items.add({
         name: "pack of tri-peppers",
-        quantity: 1 });
+        quantity: 1,
+        department: "produce",
+        store: "Walmart/Aldi" });
 
       items.add({
         name: "bag of onions",
-        quantity: 1 });
+        quantity: 1,
+        department: "produce",
+        store: "Walmart/Aldi" });
 
         items.add({
         name: "pack of garlic bulbs",
-        quantity: 1 });
+        quantity: 1,
+        department: "produce",
+        store: "Walmart/Aldi" });
 
       items.add({
         name: "celery",
-        quantity: 1 });
+        quantity: 1,
+        department: "produce",
+        store: "Walmart/Aldi" });
 
       items.add({
         name: "baby carrots",
-        quantity: 1 });
+        quantity: 1,
+        department: "produce",
+        store: "Walmart/Aldi" });
 
         items.add({
         name: "bag of salad",
-        quantity: 1 });
+        quantity: 1,
+        department: "produce",
+        store: "Walmart/Aldi" });
 
       items.add({
         name: "english cucumber",
-        quantity: 1 });
+        quantity: 1,
+        department: "produce",
+        store: "Walmart/Aldi" });
 
       items.add({
         name: "cherry/grape tomatoes",
-        quantity: 1 });
+        quantity: 1,
+        department: "produce",
+        store: "Walmart/Aldi" });
 
         items.add({
         name: "bag of spinach",
-        quantity: 1 });
+        quantity: 1,
+        department: "produce",
+        store: "Walmart/Aldi" });
         </script>
 </body>
 </html>

@@ -6,7 +6,7 @@ footer {
   font-family: 'Bebas Neue', cursive;
   font-weight: bold;
   font-size: 20px;
-  background-color: #521809;
+  background-color: #520919;
   width: 100%;
   text-align: center;
   padding: 0.5em;
@@ -39,7 +39,7 @@ select{
 
 .delete, button {
   color: white;
-  background-color: #521809;
+  background-color: #520919;
 }
 button {
   display: block;
@@ -119,6 +119,6 @@ li:hover {
   border-bottom: 2px solid #f3a493;
   font-size: 1.25em;
   font-weight: bold;
-  color: #521809;
+  color: #520919;
   padding: 0;
 }
